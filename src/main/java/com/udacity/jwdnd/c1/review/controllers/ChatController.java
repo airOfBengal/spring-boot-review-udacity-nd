@@ -29,13 +29,13 @@ public class ChatController {
     public String setChat(@ModelAttribute("chatForm")ChatForm chatForm, Model model){
         ChatMessage chatMessage = new ChatMessage();
         if(chatForm.getMessageType().equalsIgnoreCase("shout")){
-            chatMessage.setMessage(chatForm.getMessage().toUpperCase());
+            chatMessage.setMessagetext(chatForm.getMessage().toUpperCase());
             chatMessage.setUsername(chatForm.getUsername().toUpperCase());
         } else if (chatForm.getMessageType().equalsIgnoreCase("whisper")){
-            chatMessage.setMessage(chatForm.getMessage().toLowerCase());
+            chatMessage.setMessagetext(chatForm.getMessage().toLowerCase());
             chatMessage.setUsername(chatForm.getUsername().toLowerCase());
         } else {
-            chatMessage.setMessage(chatForm.getMessage());
+            chatMessage.setMessagetext(chatForm.getMessage());
             chatMessage.setUsername(chatForm.getUsername());
         }
         messageService.addMessage(chatMessage);
